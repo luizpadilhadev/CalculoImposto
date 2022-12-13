@@ -1,7 +1,7 @@
 package entities;
 
 public class Company extends TaxPayer{
-    private int numberOfEmployees;
+    private Integer numberOfEmployees;
 
 
     public Company(String name, double anuallncome, int numberOfEmployees) {
@@ -15,5 +15,16 @@ public class Company extends TaxPayer{
 
     public void setNumberOfEmployees(int numberOfEmployees) {
         this.numberOfEmployees = numberOfEmployees;
+    }
+
+    @Override
+    public double tax() {
+        if (numberOfEmployees > 10){
+            return getAnuallncome() * 0.14;
+        }
+        else {
+            return getAnuallncome() * 0.16;
+        }
+
     }
 }
